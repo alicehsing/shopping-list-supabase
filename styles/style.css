@@ -23,6 +23,10 @@ body {
 }
 
 main {
+    background-image: url(../assets/background-image.webp);
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,11 +50,19 @@ section {
 }
 
 header {
-    display: flex;
-    justify-content: flex-end;
+    /* display: flex;
+    justify-content: flex-end; */
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
+}
+
+.welcome-header {
+    display: flex;
+    justify-content: center;
+    color:#e56b6f;
+    font-size: x-large;
+    margin-top: 100px;
 }
 
 h2 {
@@ -59,6 +71,8 @@ h2 {
 }
 
 .gutter-right {
+    display: flex;
+    justify-content: flex-end;
     margin-right: 20px;
 }
 
@@ -118,7 +132,7 @@ footer {
 }
 
 .auth-container {
-    margin: 10px;
+    margin: 40px;
 }
 
 .auth-container form {
