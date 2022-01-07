@@ -2,15 +2,22 @@
 export function renderItem(item) {
     const itemEl = document.createElement('div');
     const itemP = document.createElement('p');
-    const img = document.createElement('img');
+    const imgBin = document.createElement('img');
+    const imgAdd = document.createElement('img');
+
+    itemP.textContent = `${item.quantity} ${item.item}`;
+    imgBin.src = '../assets/bin.png';
+    imgAdd.src = '../assets/add-icon.png';
+    itemEl.append(itemP);
 
     if (item.bought) {
         itemEl.classList.add('bought');
+        itemEl.append(imgAdd);
+        
     } else {
         itemEl.classList.add('not-bought');
+        itemEl.append(imgBin);
     }
-    itemP.textContent = `${item.quantity} ${item.item}`;
-    img.src = '../assets/bin.png';
-    itemEl.append(itemP, img);
+
     return itemEl;
 }

@@ -240,6 +240,9 @@ div .not-bought img {
 }
 
 div .bought img {
-    visibility: hidden;
+    /* visibility: hidden; */
+    width: 20px;
+    height: 20px;
+    align-items: center;
 }
 

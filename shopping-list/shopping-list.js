@@ -5,6 +5,7 @@ import {
     getItems,
     buyItem,
     deleteAllItems,
+    unBuyItem,
 } from '../fetch-utils.js';
 
 import { renderItem } from '../render.utils.js';
@@ -57,9 +58,17 @@ async function displayShoppingListItems() {
         //when user clicks a display item
         if (!item.bought) {
             newItemEl.addEventListener('click', async() => {
-                //update 'bought' to true in the database
+                //update supabse 'bought' column to 'true'
                 await buyItem(item.id);
                 //clear out the old list, fetch the list again, and render 
+                displayShoppingListItems();
+            });
+        }
+        // *stretch goal: Allow users to un-buy items they accidentally checked-off.
+        if (item.bought) {
+            newItemEl.addEventListener('click', async() => {
+                //update supabase 'bought' column to 'false
+                await unBuyItem(item.id);
                 displayShoppingListItems();
             });
         }

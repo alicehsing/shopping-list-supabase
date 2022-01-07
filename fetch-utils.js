@@ -36,12 +36,23 @@ export async function getItems() {
     return checkError(response);
 }
 
-//set bought:false to bought:true for an particular item
+//set bought:false to bought:true for a particular item
 //use its unique id in supabase
 export async function buyItem(someId) {
     const response = await client
         .from('shopping_list')
         .update({ bought: true })
+        .match({ id: someId });
+    
+    return checkError(response);
+}
+
+//set bought:true to bought:false for a particular item
+//use its unique id in supabase
+export async function unBuyItem(someId) {
+    const response = await client
+        .from('shopping_list')
+        .update({ bought: false })
         .match({ id: someId });
     
     return checkError(response);
