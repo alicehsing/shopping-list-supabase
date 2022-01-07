@@ -5,6 +5,47 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+export async function createItem(newItem, newQuantity) {
+    const response = await client
+        .from('shopping_list')
+        .insert([
+            { 
+                item: newItem, 
+                quantity: newQuantity, 
+                bought: false 
+            }
+        ]);
+
+    return checkError(response);
+}
+
+export async function deleteAllItems() {
+    const response = await client
+        .from('shopping_list')
+        .delete();
+    
+    return checkError(response);
+}
+
+export async function getItems() {
+    const response = await client 
+        .from('shopping_list')
+        .select();
+    
+    return checkError(response);
+}
+
+//set bought:false to bought:true for an particular item
+//use its unique id in supabase
+export async function buyItem(someId) {
+    const response = await client
+        .from('shopping_list')
+        .update([{ bought: true }])
+        .match([{ id: someId}]);
+    
+    return checkError(response);
+}
+
 export async function getUser() {
     return client.auth.session();
 }
