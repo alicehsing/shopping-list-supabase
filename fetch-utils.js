@@ -40,8 +40,8 @@ export async function getItems() {
 export async function buyItem(someId) {
     const response = await client
         .from('shopping_list')
-        .update([{ bought: true }])
-        .match([{ id: someId}]);
+        .update({ bought: true })
+        .match({ id: someId });
     
     return checkError(response);
 }
@@ -49,7 +49,6 @@ export async function buyItem(someId) {
 export async function getUser() {
     return client.auth.session();
 }
-
 
 export async function checkAuth() {
     const user = await getUser();

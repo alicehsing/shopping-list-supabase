@@ -184,3 +184,14 @@ footer {
     width: 500px;
     border-radius: 10px;
 }
+
+button, .not-bought {
+    cursor: pointer;
+}
+
+.bought {
+    cursor: initial;
+    text-decoration: line-through;
+    /* transform: rotateX(180deg); */
+    color:rgba(53, 54, 53, 0.507)
+}

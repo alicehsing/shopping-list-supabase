@@ -3,6 +3,8 @@ import {
     logout,
     createItem,
     getItems,
+    buyItem,
+    deleteAllItems,
 } from '../fetch-utils.js';
 
 import { renderItem } from '../render.utils.js';
@@ -39,6 +41,11 @@ itemForm.addEventListener('submit', async(e) => {
 
 });
 
+deleteButton.addEventListener('click', async() => {
+    await deleteAllItems();
+    await displayShoppingListItems();
+});
+
 async function displayShoppingListItems() {
     //fetch all shopping items for this user
     const items = await getItems();
@@ -49,6 +56,15 @@ async function displayShoppingListItems() {
     for (let item of items) {
         const newItemEl = renderItem(item);
         listEl.append(newItemEl);
+        //when user clicks a display item
+        if (!item.bought) {
+            newItemEl.addEventListener('click', async() => {
+                //update 'bought' to true in the database
+                await buyItem(item.id);
+                //clear out the old list, fetch the list again, and render 
+                displayShoppingListItems();
+            
+            });
+        }
     }
-
 }
