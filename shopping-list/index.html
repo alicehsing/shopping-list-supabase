@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>My Shopping List</title>
+</head>
+
+<body>
+    <header>
+        <div class="shopping-list-header">
+            <h1>My Shopping List</h1>
+        </div>  
+    </header>    
+    <button id="logout">Logout</button>
+
+    <main>
+        <button class="delete">Clear List</button>
+        <section>
+            <form class="item-form">
+                <label class="item"> 
+                    <input name="item" type="text" placeholder="Add item">
+                    
+                </label>
+                <label class="quantity">
+                    <input name="quantity" type="number" min="0" placeholder="Quantity">
+                </label>
+                <button>
+                    <img class="add-icon" src="../assets/add-icon.png">
+                </button>
+            </form>
+            <br>
+            <div class="list" style="overflow-y:scroll">
+                <ul class="item-list">
+
+                </ul>
+            </div>
+        </section>
+       
+
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
+    </footer>
+    <script type="module" src="./shopping-list.js"></script>
+</body>
+
+</html>

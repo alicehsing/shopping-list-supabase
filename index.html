@@ -10,18 +10,19 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/home.css">
-    <title>Document</title>
+    <title>Welcome to Grocery List Maker</title>
 </head>
 
 <body>
     <header>
-        <div class="gutter-right logo">
-            <img src="assets/big-logo.png" />
-        </div>
+        <div class="welcome-header">
+            Welcome to Grocery List Maker!
+        </div>   
     </header>
-    <main class="auth-main">
+    <main class="auth-main">   
         <div class="left">
             <div class="auth-container">
+                <h3>Already have an account?</h3>
                 <form id="sign-in">
                     <h3>Sign In</h3>
                     <label>Email </label><input type="email" name="email" id="sign-in-email"/>
@@ -32,10 +33,11 @@
         </div>
         <div class="right">
             <div class="auth-container">
-                <form id='sign-up'>
+                <h3>Don't have an account yet?</h3>
+                <form id="sign-up">
                     <h3>Sign Up</h3>
-                    <label>Email </label><input type='email' name='email' id="sign-up-email" />
-                    <label>Password </label><input type='password' name='password' id="sign-up-password" />
+                    <label>Email </label><input type="email" name="email" id="sign-up-email" />
+                    <label>Password </label><input type="password" name="password" id="sign-up-password" />
                     <button>Submit</button>
                 </form>
             </div>
