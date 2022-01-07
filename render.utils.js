@@ -1,4 +1,4 @@
-//loop through those items, create DOM elements, and append -- render items differently if "bought: true"
+//loop through those items, create DOM elements, and append -- render items differently if "bought: true" or "bought: false"
 export function renderItem(item) {
     const itemEl = document.createElement('div');
     const itemP = document.createElement('p');
@@ -13,7 +13,7 @@ export function renderItem(item) {
     if (item.bought) {
         itemEl.classList.add('bought');
         itemEl.append(imgAdd);
-        
+
     } else {
         itemEl.classList.add('not-bought');
         itemEl.append(imgBin);
