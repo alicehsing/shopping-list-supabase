@@ -93,12 +93,12 @@ let x = setInterval(function() {
 
     //display the result in the element with id="demo"
     const countDown = document.getElementById('count-down-time');
-    countDown.textContent = days + "d  " + hours + "h  "
-    + minutes + "m  " + seconds + "s  ";
+    countDown.textContent = days + 'd  ' + hours + 'h  '
+    + minutes + 'm  ' + seconds + 's  ';
     // if the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        countDown.textContent = "Your list is EXPIRED!";
+        countDown.textContent = 'Your list is EXPIRED!';
         itemForm.classList.add('time-out');
         listEl.classList.add('time-out');
     }
