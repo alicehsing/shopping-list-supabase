@@ -11,7 +11,7 @@ import { renderItem } from '../render.utils.js';
 
 checkAuth();
 
-//grab DOM
+
 const itemForm = document.querySelector('.item-form');
 const deleteButton = document.querySelector('.delete');
 const listEl = document.querySelector('.item-list');
@@ -31,14 +31,12 @@ itemForm.addEventListener('submit', async(e) => {
     const data = new FormData(itemForm);
     const item = data.get('item');
     const quantity = data.get('quantity');
-
     // send the new item to supabase and create a new row
     await createItem(item, quantity);
     //reset the form
     itemForm.reset();
     //fetch and display the item
     await displayShoppingListItems();
-
 });
 
 deleteButton.addEventListener('click', async() => {
@@ -63,7 +61,6 @@ async function displayShoppingListItems() {
                 await buyItem(item.id);
                 //clear out the old list, fetch the list again, and render 
                 displayShoppingListItems();
-            
             });
         }
     }

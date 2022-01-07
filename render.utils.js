@@ -2,6 +2,7 @@
 export function renderItem(item) {
     const itemEl = document.createElement('div');
     const itemP = document.createElement('p');
+    const img = document.createElement('img');
 
     if (item.bought) {
         itemEl.classList.add('bought');
@@ -9,6 +10,7 @@ export function renderItem(item) {
         itemEl.classList.add('not-bought');
     }
     itemP.textContent = `${item.quantity} ${item.item}`;
-    itemEl.append(itemP);
+    img.src = '../assets/bin.png';
+    itemEl.append(itemP, img);
     return itemEl;
 }

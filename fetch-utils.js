@@ -30,7 +30,8 @@ export async function deleteAllItems() {
 export async function getItems() {
     const response = await client 
         .from('shopping_list')
-        .select();
+        .select()
+        .order('bought', { descending: false });
     
     return checkError(response);
 }
