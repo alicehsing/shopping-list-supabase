@@ -74,3 +74,32 @@ async function displayShoppingListItems() {
         }
     }
 }
+
+//stretch goal: set countdown timer. Give shopping list items a due date, and tell the user how long they have to buy each item. If a shopping list item is past its due date, style it differently.
+
+//set the future date/time we are counting down to
+const countDownTime = new Date('Jan 07 2023 15:00:00').getTime();
+//update the count down every 1 second
+let x = setInterval(function() {
+    //get today's date and time
+    let now = new Date().getTime();
+    //find the distance between now and the count down date
+    let distance = countDownTime - now;
+    // time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    //display the result in the element with id="demo"
+    const countDown = document.getElementById('count-down-time');
+    countDown.textContent = days + 'd  ' + hours + 'h  '
+    + minutes + 'm  ' + seconds + 's  ';
+    // if the count down is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        countDown.textContent = 'Your list is EXPIRED!';
+        itemForm.classList.add('time-out');
+        listEl.classList.add('time-out');
+    }
+}, 1000);
