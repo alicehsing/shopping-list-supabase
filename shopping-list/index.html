@@ -10,24 +10,48 @@
     <link rel="stylesheet" href="../styles/reset.css">
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/home.css">
-    <title>Document</title>
+    <title>My Shopping List</title>
 </head>
 
 <body>
     <header>
         <div class="gutter-right logo">
-            <img src="../assets/big-logo.png" />
+            <img src="../assets/shopping-list-logo.png" />
         </div>
+        
+        <div class="shopping-list-header">
+            <h1>My Shopping List</h1>
+        </div>  
     </header>    
     <button id="logout">Logout</button>
     <main>
-        <h1>My Shopping List</h1>
-        
+        <button class="delete">Delete List</button>
+        <section>
+            <form class="item-form">
+                <label class="item"> 
+                    <input name="item" type="text" placeholder="Add item">
+                    
+                </label>
+                <label class="quantity">
+                    <input name="quantity" type="number" min="0" placeholder="Quantity">
+                </label>
+                <button>
+                    <img class="add-icon" src="../assets/add-icon.png">
+                </button>
+            </form>
+            <div class="list">
+                <ul class="item-list">
+
+                </ul>
+            </div>
+        </section>
+       
+
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
     </footer>
-    <script type="module" src="./other-page.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
 </body>
 
 </html>
